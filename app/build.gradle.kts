@@ -1,7 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id("org.jetbrains.kotlin.kapt")
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -50,10 +50,8 @@ android {
 // the schema JSON to. Without this, some CI/Lint configurations turn the
 // "schema export directory is not provided" message into a build warning
 // that can be mistaken for a failure.
-kapt {
-    arguments {
-        arg("room.schemaLocation", "$projectDir/schemas")
-    }
+ksp {
+    arg("room.schemaLocation", "$projectDir/schemas")
 }
 
 dependencies {
@@ -76,7 +74,7 @@ dependencies {
     // --- Room (local database foundation) ---
     implementation("androidx.room:room-runtime:2.6.1")
     implementation("androidx.room:room-ktx:2.6.1")
-    kapt("androidx.room:room-compiler:2.6.1")
+    ksp("androidx.room:room-compiler:2.6.1")
 
     // --- Kotlin coroutines (async local DB access) ---
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")

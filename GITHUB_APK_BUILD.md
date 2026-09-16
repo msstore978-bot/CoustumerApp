@@ -24,3 +24,7 @@ The repository root should contain:
 ## Important
 This workflow uses Gradle 8.7 directly, so the repository does not need a working Gradle wrapper JAR.
 JDK 17 is used for the Android Gradle Plugin configuration in this project.
+
+
+## Build-fix note
+This version migrates Room annotation processing from KAPT to KSP. Kotlin 1.9.24 is paired with KSP 1.9.24-1.0.20. Room 2.6.1 supports KSP.

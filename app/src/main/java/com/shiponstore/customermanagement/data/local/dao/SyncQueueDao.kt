@@ -12,7 +12,7 @@ import com.shiponstore.customermanagement.data.local.entity.SyncQueueEntity
  */
 @Dao
 interface SyncQueueDao {
-    @Insert(onConflict = OnConflictStrategy.APPEND)
+    @Insert(onConflict = OnConflictStrategy.ABORT)
     suspend fun enqueue(entry: SyncQueueEntity): Long
 
     @Query("SELECT * FROM sync_queue ORDER BY createdAt ASC")
